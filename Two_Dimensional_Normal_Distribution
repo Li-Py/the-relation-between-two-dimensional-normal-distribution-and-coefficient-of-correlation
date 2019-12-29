@@ -1,0 +1,13 @@
+syms x y z
+
+rho = -0.85;
+z = 1/(2 * pi * sqrt(1 - rho^2) ) * exp( -1/( 2*(1 - rho^2) ) * (x^2 - 2*rho*x*y + y^2) );
+hp = fsurf(z,[-1.5 1.5]);
+axis([-1.5,1.5,-1.5,1.5,0,0.31]);
+pause(1);
+
+for rho = -0.80:0.05:0.85
+    z = 1/(2 * pi * sqrt(1 - rho^2) ) * exp( -1/( 2*(1 - rho^2) ) * (x^2 - 2*rho*x*y + y^2) );
+    set(hp,'function',z);
+    pause(0.01);
+end
